@@ -27,7 +27,7 @@ This will start the server on the respective PORT.
 
 ## Some business logic assumption
 
-- Payment is triggered by the Order app after 5 seconds
+- Payment is triggered by the Order app after 5 seconds upon order creation.
 - CONFIRMED order can be cancelled within 15 seconds. After 15 seconds, CONFIRMED order will trigger delivery.
 
 
