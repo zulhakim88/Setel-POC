@@ -1,6 +1,6 @@
 # serverless.yml
 
-service: my-payment-application
+service: my-express-payment-application
 
 plugins:
   - serverless-offline

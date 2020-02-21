@@ -4,7 +4,8 @@
   "description": "Payment system",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "deploy:offline": "sls offline start --skipCacheInvalidation"
   },
   "author": "Zul",
   "license": "MIT",

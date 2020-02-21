@@ -59,7 +59,7 @@
     "AppLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/my-payment-application-dev-app"
+        "LogGroupName": "/aws/lambda/my-express-payment-application-dev-app"
       }
     },
     "IamRoleLambdaExecution": {
@@ -88,7 +88,7 @@
                 "-",
                 [
                   "dev",
-                  "my-payment-application",
+                  "my-express-payment-application",
                   "lambda"
                 ]
               ]
@@ -104,7 +104,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-payment-application-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-payment-application-dev*:*"
                     }
                   ]
                 },
@@ -115,7 +115,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-payment-application-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-payment-application-dev*:*:*"
                     }
                   ]
                 }
@@ -128,7 +128,7 @@
           "Fn::Join": [
             "-",
             [
-              "my-payment-application",
+              "my-express-payment-application",
               "dev",
               {
                 "Ref": "AWS::Region"
@@ -146,9 +146,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/my-payment-application/dev/1582316123472-2020-02-21T20:15:23.472Z/my-payment-application.zip"
+          "S3Key": "serverless/my-express-payment-application/dev/1582316680846-2020-02-21T20:24:40.846Z/my-express-payment-application.zip"
         },
-        "FunctionName": "my-payment-application-dev-app",
+        "FunctionName": "my-express-payment-application-dev-app",
         "Handler": "index.handler",
         "MemorySize": 1024,
         "Role": {
@@ -170,20 +170,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersionxlWAoLVuWVWYxoaUDHYSL9TGMVERUkm4j1xldEsU": {
+    "AppLambdaVersion817VO4s2cAOVdzAwQYPW82II7n3m5r12mI5CbcNk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "PjJo6OEGWjQrOYMDsKadrHbK0wPLY0xZDcYjratRojg="
+        "CodeSha256": "0Xg8t5Q1xVcA6JUYT/qEW6vy99A/eWPcUCTBMLsv+JQ="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-my-payment-application",
+        "Name": "dev-my-express-payment-application",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -297,7 +297,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1582316104304": {
+    "ApiGatewayDeployment1582316658056": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -357,7 +357,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionxlWAoLVuWVWYxoaUDHYSL9TGMVERUkm4j1xldEsU"
+        "Ref": "AppLambdaVersion817VO4s2cAOVdzAwQYPW82II7n3m5r12mI5CbcNk"
       }
     },
     "ServiceEndpoint": {

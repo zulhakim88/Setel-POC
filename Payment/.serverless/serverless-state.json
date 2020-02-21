@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "my-payment-application",
+    "service": "my-express-payment-application",
     "serviceObject": {
-      "name": "my-payment-application"
+      "name": "my-express-payment-application"
     },
     "provider": {
       "stage": "dev",
@@ -79,7 +79,7 @@
           "AppLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/my-payment-application-dev-app"
+              "LogGroupName": "/aws/lambda/my-express-payment-application-dev-app"
             }
           },
           "IamRoleLambdaExecution": {
@@ -108,7 +108,7 @@
                       "-",
                       [
                         "dev",
-                        "my-payment-application",
+                        "my-express-payment-application",
                         "lambda"
                       ]
                     ]
@@ -124,7 +124,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-payment-application-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-payment-application-dev*:*"
                           }
                         ]
                       },
@@ -135,7 +135,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-payment-application-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/my-express-payment-application-dev*:*:*"
                           }
                         ]
                       }
@@ -148,7 +148,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "my-payment-application",
+                    "my-express-payment-application",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -166,9 +166,9 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-payment-application/dev/1582316123472-2020-02-21T20:15:23.472Z/my-payment-application.zip"
+                "S3Key": "serverless/my-express-payment-application/dev/1582316680846-2020-02-21T20:24:40.846Z/my-express-payment-application.zip"
               },
-              "FunctionName": "my-payment-application-dev-app",
+              "FunctionName": "my-express-payment-application-dev-app",
               "Handler": "index.handler",
               "MemorySize": 1024,
               "Role": {
@@ -190,20 +190,20 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersionxlWAoLVuWVWYxoaUDHYSL9TGMVERUkm4j1xldEsU": {
+          "AppLambdaVersion817VO4s2cAOVdzAwQYPW82II7n3m5r12mI5CbcNk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "PjJo6OEGWjQrOYMDsKadrHbK0wPLY0xZDcYjratRojg="
+              "CodeSha256": "0Xg8t5Q1xVcA6JUYT/qEW6vy99A/eWPcUCTBMLsv+JQ="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-my-payment-application",
+              "Name": "dev-my-express-payment-application",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -317,7 +317,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1582316104304": {
+          "ApiGatewayDeployment1582316658056": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -377,7 +377,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionxlWAoLVuWVWYxoaUDHYSL9TGMVERUkm4j1xldEsU"
+              "Ref": "AppLambdaVersion817VO4s2cAOVdzAwQYPW82II7n3m5r12mI5CbcNk"
             }
           },
           "ServiceEndpoint": {
@@ -494,22 +494,22 @@
             "http": "ANY {proxy+}"
           }
         ],
-        "name": "my-payment-application-dev-app",
+        "name": "my-express-payment-application-dev-app",
         "package": {},
         "memory": 1024,
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionxlWAoLVuWVWYxoaUDHYSL9TGMVERUkm4j1xldEsU"
+        "versionLogicalId": "AppLambdaVersion817VO4s2cAOVdzAwQYPW82II7n3m5r12mI5CbcNk"
       }
     },
     "serviceFilename": "serverless.yml",
     "layers": {},
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/home/zul/Work/Sample App/setel-POC/Payment/.serverless/my-payment-application.zip"
+    "artifact": "/home/zul/Work/Sample App/setel-POC/Payment/.serverless/my-express-payment-application.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-payment-application/dev/1582316123472-2020-02-21T20:15:23.472Z",
-    "artifact": "my-payment-application.zip"
+    "artifactDirectoryName": "serverless/my-express-payment-application/dev/1582316680846-2020-02-21T20:24:40.846Z",
+    "artifact": "my-express-payment-application.zip"
   }
 }
