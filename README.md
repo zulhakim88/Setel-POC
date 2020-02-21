@@ -42,7 +42,7 @@ This will start the server on the respective PORT.
 
 ### Check Order Details
 
-- GET [http://localhost:2222/order/:id](http://localhost:2222/order/{orderId})
+- GET [http://localhost:2222/order/{orderId}](http://localhost:2222/order/{orderId})
 
 ## Some business logic assumption
 
