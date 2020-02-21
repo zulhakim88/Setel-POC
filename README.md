@@ -2,7 +2,7 @@
 
 This is a POC project for Setel Technical Assessment.
 
-## Requirements before running the project
+## Requirements for running the project locally
 
 - DB configuration is handled through the DB_CONNECTION define in the `.env` file located in the root of the Order project. Make sure that you provide the MongoDB connection string accordingly in the file.
 
