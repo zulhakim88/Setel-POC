@@ -1,6 +1,6 @@
 ## Serverless Microservice
 
-This is a POC project for Setel Technical Assessment.
+This is a sample of a serverless microservices.
 
 ## Requirements for running the project locally
 
