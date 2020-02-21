@@ -2,6 +2,10 @@
 
 This is a POC project for Setel Technical Assessment.
 
+## Requirements before running the project
+
+- DB configuration is handled through the DB_CONNECTION input in the `.env` file. Make sure you to provide the MongoDB connection string accordingly in the file.
+
 ## Available Scripts
 
 In each of the project directory (order and payment), you can run:
