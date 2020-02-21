@@ -12,8 +12,8 @@ This is a POC project for Setel Technical Assessment.
 
 In each of the project directory (order and payment), you will have to run:
 
-### `yarn start`
-This will start the server on the respective PORT.
+### `yarn deploy:offline`
+This will emulates an AWS Lambda on the local machine.
 - Order [http://localhost:2222](http://localhost:2222)
 - Payment [http://localhost:3333](http://localhost:3333)
 
