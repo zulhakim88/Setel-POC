@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
     res.json(savedOrder._id);
     setTimeout(() => {
       tempObj.dispatch('pay', [savedOrder]);
-    }, 15000);
+    }, 5000);
   } catch (e) {
     res.json({ message: e });
   }
