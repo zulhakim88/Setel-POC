@@ -10,7 +10,7 @@ This is a POC project for Setel Technical Assessment.
 
 ## Available Scripts
 
-In each of the project directory (order and payment), you can run:
+In each of the project directory (order and payment), you will have to run:
 
 ### `yarn start`
 This will start the server on the respective PORT.
