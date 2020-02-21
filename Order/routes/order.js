@@ -92,8 +92,12 @@ router.put('/cancel', async (req, res) => {
 //Check order status
 router.get('/:id', async (req, res) => {
   const orderId = req.params.id;
-  const fetchOrder = await Order.findOne({ _id: orderId });
-  res.json(fetchOrder);
+  try {
+    const fetchOrder = await Order.findOne({ _id: orderId });
+    res.json(fetchOrder);
+  } catch (e) {
+    res.json({ message: e });
+  }
 });
 
 module.exports = router;
