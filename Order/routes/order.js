@@ -62,7 +62,13 @@ router.put('/confirm', async (req, res) => {
     fsm.state = 'CONFIRMED';
     const tempObj = Object.create(fsm);
     res.json(confirmedOrder);
-    setTimeout(() => tempObj.dispatch('deliver', [confirmedOrder]), 10000);
+    setTimeout(async () => {
+      const getOrder = await Order.findOne({ _id: order._id });
+      if (getOrder.status !== 'CANCELLED') {
+        console.log('Order is to be delivered');
+        tempObj.dispatch('deliver', [confirmedOrder]);
+      }
+    }, 15000);
   } catch (e) {
     console.log(e);
   }
