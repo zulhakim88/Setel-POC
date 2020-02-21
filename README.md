@@ -4,7 +4,9 @@ This is a POC project for Setel Technical Assessment.
 
 ## Requirements before running the project
 
-- DB configuration is handled through the DB_CONNECTION input in the `.env` file. Make sure you to provide the MongoDB connection string accordingly in the file.
+- DB configuration is handled through the DB_CONNECTION define in the `.env` file located in the root of the Order project. Make sure that you provide the MongoDB connection string accordingly in the file.
+
+- IP needs to be whitelisted when using MongoDB Atlas. So it's either you will have to provide your own MongoDB details or I will have to whitelist your public IP upon request.
 
 ## Available Scripts
 
