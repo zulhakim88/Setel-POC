@@ -4,7 +4,8 @@
   "description": "Setel Simple order app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "deploy": "sls deploy"
   },
   "author": "Zul",
   "license": "MIT",
@@ -25,11 +26,12 @@
     "eslint-plugin-import": "2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
     "express": "^4.17.1",
-    "global": "^4.4.0",
     "mongoose": "^5.9.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "serverless": "^1.64.0"
+    "serverless": "^1.64.0",
+    "serverless-http": "^2.3.1",
+    "serverless-offline": "^5.12.1"
   }
 }

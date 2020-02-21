@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const serverless = require('serverless-http');
 const app = express();
 
 //Import Routes
@@ -9,5 +10,4 @@ const payment = require('./routes/payment');
 app.use(bodyParser.json());
 app.use('/payment', payment);
 
-// Server will run on this port
-app.listen(3333);
+module.exports.handler = serverless(app);

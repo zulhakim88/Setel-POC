@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 require('dotenv/config');
 const app = express();
@@ -18,5 +19,4 @@ app.get('/', (req, res) => {
 //connect to the DB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => console.log('Connected to Mongo Atlas'));
 
-// Server will run on this port
-app.listen(2222);
+module.exports.handler = serverless(app);

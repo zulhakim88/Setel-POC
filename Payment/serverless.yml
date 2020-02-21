@@ -1,0 +1,27 @@
+# serverless.yml
+
+service: my-payment-application
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 3333
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-southeast-1
+  apiGateway:
+    minimumCompressionSize: 1024
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
