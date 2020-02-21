@@ -1,0 +1,33 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }],
+    "no-console": ["off"],
+    "quotes": ["off"],
+    "prefer-destructuring": ["off"],
+    "no-underscore-dangle": ["off"],
+    "import/first": ["off"],
+    "import/no-unresolved": ["off"],
+    "radix": ["off"],
+    "no-plusplus": ["off"],
+    "import/extensions": ["off"],
+    "no-restricted-syntax": ["off"],
+    "jsx-a11y/label-has-associated-control": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }],
+    "jsx-a11y/label-has-for": [ "error", {
+      "required": {
+        "some": [ "nesting", "id"  ]
+      }
+    }]
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  }
+}
