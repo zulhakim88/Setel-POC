@@ -21,7 +21,7 @@ This will start the server on the respective PORT.
 
 ### Create Order
 
-- POST [http://localhost:2222/order](http://localhost:2222/order)
+- **POST** [http://localhost:2222/order](http://localhost:2222/order)
   - ***Req body(optional)***: 
   ```
   {
@@ -32,7 +32,7 @@ This will start the server on the respective PORT.
 
 ### Cancel Order
 
-- PUT [http://localhost:2222/order/cancel](http://localhost:2222/order)
+- **PUT** [http://localhost:2222/order/cancel](http://localhost:2222/order)
   - ***Req body (required)***: 
   ```
   {
@@ -42,7 +42,7 @@ This will start the server on the respective PORT.
 
 ### Check Order Details
 
-- GET [http://localhost:2222/order/{orderId}](http://localhost:2222/order/{orderId})
+- **GET** [http://localhost:2222/order/{orderId}](http://localhost:2222/order/{orderId})
 
 ## Some business logic assumption
 
