@@ -25,4 +25,9 @@ This will start the server on the respective PORT.
 
 - GET [http://localhost:2222/order/cancel/:id](http://localhost:2222/order/{orderId})
 
+## Some business logic assumption
+
+- Payment is triggered by the Order app after 5 seconds
+- CONFIRMED order can be cancelled within 15 seconds. After 15 seconds, CONFIRMED order will trigger delivery.
+
 
