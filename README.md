@@ -1,4 +1,4 @@
-## Setel POC
+## Serverless Microservice
 
 This is a POC project for Setel Technical Assessment.
 
