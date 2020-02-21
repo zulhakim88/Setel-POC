@@ -16,17 +16,23 @@ This will start the server on the respective PORT.
 ### Create Order
 
 - POST [http://localhost:2222/order](http://localhost:2222/order)
-  - Req body: 
+  - *Req body*: 
   ```
   {
-    price: "{optional}", 
-    currency: "{optional}"
+    "price": "{optional}", 
+    "currency": "{optional}"
   }
   ```
 
 ### Cancel Order
 
 - PUT [http://localhost:2222/order/cancel](http://localhost:2222/order)
+  - *Req body*: 
+  ```
+  {
+    "_id": "{required}"
+  }
+  ```
 
 ### Check Order Details
 
