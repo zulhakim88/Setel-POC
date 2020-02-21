@@ -80,8 +80,10 @@ router.put('/cancel', async (req, res) => {
   try {
     const cancelledOrder = await Order.findOne({ _id: order._id }, async (err, doc) => {
       console.log('Order for cancellation:', doc);
-      doc.status = 'CANCELLED';
-      await doc.save();
+      if (doc.status === 'CONFIRMED' || doc.status === 'CREATED') {
+        doc.status = 'CANCELLED';
+        await doc.save();
+      }
     });
     res.json(cancelledOrder);
   } catch (e) {
