@@ -12,21 +12,17 @@ router.post('/', async (req, res) => {
     currency: req.body.currency,
   };
   fsm.state = 'INIT';
-  console.log('FSM state:', fsm.state);
-  const tempObj = Object.create(fsm);
-  tempObj.dispatch('create');
-  console.log(`Order is now in '${tempObj.state}' state`);
+  fsm.dispatch('create');
+  console.log(`Order is now in '${fsm.state}' state`);
 
-  tempOrder.status = tempObj.state;
-
+  tempOrder.status = fsm.state;
   const order = new Order(tempOrder);
-
   try {
     const savedOrder = await order.save();
     console.log('SavedOrder:', savedOrder.id);
     res.json(savedOrder._id);
     setTimeout(() => {
-      tempObj.dispatch('pay', [savedOrder]);
+      fsm.dispatch('pay', [savedOrder]);
     }, 5000);
   } catch (e) {
     res.json({ message: e });
@@ -36,58 +32,50 @@ router.post('/', async (req, res) => {
 //Deliver Order
 router.put('/deliver', async (req, res) => {
   const order = req.body;
+  fsm.transition('DELIVERED');
   try {
-    const deliveredOrder = await Order.findOne({ _id: order._id }, async (err, doc) => {
-      console.log('Order for delivery:', doc);
-      doc.status = 'DELIVERED';
-      await doc.save();
-    });
+    const deliveredOrder = await Order.findOne({ _id: order._id });
+    deliveredOrder.status = fsm.state;
+    await deliveredOrder.save();
     res.json(deliveredOrder);
   } catch (e) {
-    console.log(e);
+    res.json({ message: e });
   }
 });
 
 //Confirm Order
 router.put('/confirm', async (req, res) => {
   const order = req.body;
+  fsm.transition('CONFIRMED');
   try {
-    await Order.findOne({ _id: order._id }, async (err, doc) => {
-      console.log('Order for confirmation:', doc);
-      doc.status = 'CONFIRMED';
-      await doc.save();
-    });
     const confirmedOrder = await Order.findOne({ _id: order._id });
-    confirmedOrder.status = 'CONFIRMED';
-    fsm.state = 'CONFIRMED';
-    const tempObj = Object.create(fsm);
+    confirmedOrder.status = fsm.state;
+    await confirmedOrder.save();
+    console.log('Confirmed order:', confirmedOrder);
     res.json(confirmedOrder);
     setTimeout(async () => {
       const getOrder = await Order.findOne({ _id: order._id });
       if (getOrder.status !== 'CANCELLED') {
-        console.log('Order is to be delivered');
-        tempObj.dispatch('deliver', [confirmedOrder]);
+        fsm.state = getOrder.status;
+        fsm.dispatch('deliver', [confirmedOrder]);
       }
     }, 15000);
   } catch (e) {
-    console.log(e);
+    res.json({ message: e });
   }
 });
 
 //Cancel Order
 router.put('/cancel', async (req, res) => {
   const order = req.body;
+  fsm.transition('CANCELLED');
   try {
-    const cancelledOrder = await Order.findOne({ _id: order._id }, async (err, doc) => {
-      console.log('Order for cancellation:', doc);
-      if (doc.status === 'CONFIRMED' || doc.status === 'CREATED') {
-        doc.status = 'CANCELLED';
-        await doc.save();
-      }
-    });
+    const cancelledOrder = await Order.findOne({ _id: order._id });
+    cancelledOrder.status = fsm.state;
+    await cancelledOrder.save();
     res.json(cancelledOrder);
   } catch (e) {
-    console.log(e);
+    res.json({ message: e });
   }
 });
 
