@@ -12,6 +12,9 @@ This is a sample of a serverless microservices.
 
 In each of the project directory (order and payment), you will have to run:
 
+### `yarn deploy`
+This will deploy the project to AWS Lambda.
+
 ### `yarn deploy:offline`
 This will emulates an AWS Lambda on the local machine.
 - Order [http://localhost:2222](http://localhost:2222)
