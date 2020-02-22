@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 
+const config = require('../config');
+
 const machine = {
   state: 'INIT',
   transitions: {
@@ -12,7 +14,8 @@ const machine = {
     CREATED: {
       pay: function(order) {
         const self = this;
-        fetch('http://localhost:3333/payment', {
+        console.log('Payment endpoint:', config.paymentApi);
+        fetch(config.paymentApi, {
           method: 'POST',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
           headers: {
@@ -27,7 +30,7 @@ const machine = {
           .then(function(data) {
             if (data.message === 'accept') {
               self.transition('CONFIRMED');
-              fetch('http://localhost:2222/order/confirm', {
+              fetch(`${config.selfApi}/confirm`, {
                 method: 'PUT',
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 headers: {
@@ -40,7 +43,7 @@ const machine = {
                 .then(order => console.log(order));
             } else {
               self.transition('CANCELLED');
-              fetch('http://localhost:2222/order/cancel', {
+              fetch(`${config.selfApi}/cancel`, {
                 method: 'PUT',
                 cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 headers: {
@@ -63,7 +66,7 @@ const machine = {
     CONFIRMED: {
       deliver: function(order) {
         console.log('Item out for delivery');
-        fetch('http://localhost:2222/order/deliver', {
+        fetch(`${config.selfApi}/deliver`, {
           method: 'PUT',
           cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
           headers: {

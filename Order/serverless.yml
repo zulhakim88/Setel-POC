@@ -22,6 +22,8 @@ provider:
 functions:
   app:
     handler: index.handler
+    environment:
+      SERVER_ENV: ${opt:serverenv, 'offline'}
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

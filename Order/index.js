@@ -19,4 +19,6 @@ app.get('/', (req, res) => {
 //connect to the DB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => console.log('Connected to Mongo Atlas'));
 
+console.log('current env:', process.env);
+
 module.exports.handler = serverless(app);

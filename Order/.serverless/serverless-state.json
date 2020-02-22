@@ -166,7 +166,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-express-order-application/dev/1582315833080-2020-02-21T20:10:33.080Z/my-express-order-application.zip"
+                "S3Key": "serverless/my-express-order-application/dev/1582355780341-2020-02-22T07:16:20.341Z/my-express-order-application.zip"
               },
               "FunctionName": "my-express-order-application-dev-app",
               "Handler": "index.handler",
@@ -181,7 +181,8 @@
               "Timeout": 6,
               "Environment": {
                 "Variables": {
-                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": 1
+                  "AWS_NODEJS_CONNECTION_REUSE_ENABLED": 1,
+                  "SERVER_ENV": "dev"
                 }
               }
             },
@@ -190,14 +191,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "AppLambdaVersionX0X4vZz3JmGlrBQcuZ8uHPDEoFZ7FokapWotJlBs": {
+          "AppLambdaVersiondFrp3vRpzS59gh04RN4jHTjv7RSyGaxt44tIjO7ld8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "hCrkDi7zEBsdpPDg00XP8+eX8MQd5D8SqFnMfZgt5Bw="
+              "CodeSha256": "6qkIy3/+DfD9+/qqxl4eVIbsGleIxiW9/a43QhzWmk4="
             }
           },
           "ApiGatewayRestApi": {
@@ -317,7 +318,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1582315799511": {
+          "ApiGatewayDeployment1582355761538": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -377,7 +378,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionX0X4vZz3JmGlrBQcuZ8uHPDEoFZ7FokapWotJlBs"
+              "Ref": "AppLambdaVersiondFrp3vRpzS59gh04RN4jHTjv7RSyGaxt44tIjO7ld8"
             }
           },
           "ServiceEndpoint": {
@@ -486,6 +487,9 @@
     "functions": {
       "app": {
         "handler": "index.handler",
+        "environment": {
+          "SERVER_ENV": "dev"
+        },
         "events": [
           {
             "http": "ANY /"
@@ -500,7 +504,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionX0X4vZz3JmGlrBQcuZ8uHPDEoFZ7FokapWotJlBs"
+        "versionLogicalId": "AppLambdaVersiondFrp3vRpzS59gh04RN4jHTjv7RSyGaxt44tIjO7ld8"
       }
     },
     "serviceFilename": "serverless.yml",
@@ -509,7 +513,7 @@
     "artifact": "/home/zul/Work/Sample App/setel-POC/Order/.serverless/my-express-order-application.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-express-order-application/dev/1582315833080-2020-02-21T20:10:33.080Z",
+    "artifactDirectoryName": "serverless/my-express-order-application/dev/1582355780341-2020-02-22T07:16:20.341Z",
     "artifact": "my-express-order-application.zip"
   }
 }

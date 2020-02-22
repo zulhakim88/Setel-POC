@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "deploy": "sls deploy",
+    "deploy": "sls deploy --serverenv dev",
     "deploy:offline": "sls offline start --skipCacheInvalidation"
   },
   "author": "Zul",
