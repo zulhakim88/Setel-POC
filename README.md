@@ -4,7 +4,7 @@ This is a sample of a serverless microservices.
 
 ## Disclaimer
 
-- Since I've written the FSM code by myself, the transition method in the finite state machine currently not doing any state validation. In an actual implementation, it should validate the current state before transitioning.
+- Since I've written the FSM code myself, the transition method in the finite state machine currently not doing any state validation. In an actual implementation, it should validate the current state before transitioning.
 
 ## Deployment
 
