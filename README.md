@@ -2,11 +2,9 @@
 
 This is a sample of a serverless microservices.
 
-## Requirements for running the project locally
+## Disclaimer
 
-- DB configuration is handled through the DB_CONNECTION define in the `.env` file located in the root of the Order project. Make sure that you provide the MongoDB connection string accordingly in the file.
-
-- IP needs to be whitelisted when using MongoDB Atlas. So it's either you will have to provide your own MongoDB details or I will have to whitelist your public IP upon request.
+- The transition method in the finite state machine currently not doing any state validation. In an actual implementation, it should validate the current state before transitioning.
 
 ## Available Scripts
 
