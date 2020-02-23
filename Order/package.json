@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "deploy": "sls deploy --serverenv dev",
+    "test": "jest",
+    "deploy": "sls deploy --serverenv dev ",
     "deploy:offline": "sls offline start --skipCacheInvalidation"
   },
   "author": "Zul",
@@ -34,5 +35,16 @@
     "serverless": "^1.64.0",
     "serverless-http": "^2.3.1",
     "serverless-offline": "^5.12.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "^23.8.0",
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

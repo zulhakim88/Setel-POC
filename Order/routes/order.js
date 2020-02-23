@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
   try {
     const savedOrder = await order.save();
     console.log('SavedOrder:', savedOrder.id);
-    res.json(savedOrder._id);
+    res.json(savedOrder);
     setTimeout(() => {
       fsm.dispatch('pay', [savedOrder]);
     }, 5000);
